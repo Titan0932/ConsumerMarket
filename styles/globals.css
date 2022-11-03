@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 html,
 body {
   padding: 0;
@@ -17,7 +19,30 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family:  'Roboto Condensed', sans-serif;
 }
+
+.card{
+  @apply mb-5 block rounded-lg border shadow-sm shadow-amber-400 text-black bg-slate-100;
+}
+
+.item-img:hover{
+  opacity:0.8;
+}
+
+
+.primary-button{
+  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400 active:bg-amber-500
+}
+
+.secondary-button{
+  @apply rounded bg-slate-400 py-2 px-4 shadow outline-none hover:bg-slate-500 active:bg-slate-600
+}
+
+.danger-button{
+  @apply rounded bg-red-500 py-2 px-4 shadow outline-none hover:bg-red-600 active:bg-red-600
+}
+
 
 @media (prefers-color-scheme: dark) {
   html {
