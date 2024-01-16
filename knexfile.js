@@ -1,6 +1,6 @@
-import dotenv from "dotenv"
+const dotenv = require("dotenv");
 
-dotenv.config({path: ".env.development"});
+dotenv.config({path: ".env"});
 
 // import pkg from 'knex';
 // const { Knex } = pkg;
@@ -13,4 +13,4 @@ const config = {
   },
 };
 
-export default config;
+module.exports = config;

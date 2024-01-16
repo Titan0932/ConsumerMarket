@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,17 +7,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model product_Table {
+  Id           Int     @id(map: "Product_Table_pkey") @default(autoincrement())
+  name         String
+  image        String?
+  price        Float   @db.Real
+  brand        String?
+  rating       Float?  @db.Real
+  numReviews   Int?
+  countInStock Int?
+  slug         String
+  description  String?
+}
 
-model Product_Table{
-  id  Int   @id @default(autoincrement())
-  name String
-  category String
-  image String
-  price Float
-  brand String
-  rating Float
-  numReviews Int
-  countInStock Int
-  slug String
-  description String
+model consumer_Market {
+  id           Int     @id(map: "Consumer_Market_pkey")
+  name         String  @db.VarChar(255)
+  image        String? @db.VarChar(255)
+  price        Float   @db.Real
+  rating       Float?  @db.Real
+  numReviews   Int?
+  countInStock Int?
+  slug         String  @db.VarChar(255)
+  description  String? @db.VarChar(255)
+}
+
+model knex_migrations {
+  id             Int       @id @default(autoincrement())
+  name           String?   @db.VarChar(255)
+  batch          Int?
+  migration_time DateTime? @db.Timestamptz(6)
+}
+
+model knex_migrations_lock {
+  index     Int  @id @default(autoincrement())
+  is_locked Int?
 }

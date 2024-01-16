@@ -17,6 +17,6 @@ export async function up(knex){
 
 
 export async function down(knex){
-    await knex.schema.dropTable("posts");
+    await knex.schema.dropTable("Consumer_Market");
 }
 

@@ -2,7 +2,6 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,6 +10,7 @@
     "db:console": "docker compose run postgres psql -h localhost -U postgres -d webapp_dev",
     "db:migrate": "knex migrate:latest",
     "db:migrate:make": "knex migrate:make",
+    "db:migrate:down": "knex migrate:down",
     "docker:db:migrate": "docker compose run backend npm db:migrate",
     "docker:db:migrate:undo": "docker compose run backend npx knex migrate:down",
     "docker:db:migrate:make": "docker compose run backend npx knex migrate:make",
