@@ -6,7 +6,7 @@ import CartItems from "../components/CartItems";
 import CartTotal from "../components/CartTotal";
 
 export default function Cart() {
-  const { state } = useContext(Store);
+  const { state } =   useContext(Store);
   return (
     <Layout itemsInCart={state.cart.cartItems}>
       <h1 className="font-bold mb-4">My Cart</h1>

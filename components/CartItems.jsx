@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CartItems({ product }) {
+export default function   CartItems({ product }) {
   return (
     <div className="card px-2 py-3">
       <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row gap-2">

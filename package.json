@@ -2,15 +2,29 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:console": "docker compose run postgres psql -h localhost -U postgres -d webapp_dev",
+    "db:migrate": "knex migrate:latest",
+    "db:migrate:make": "knex migrate:make",
+    "docker:db:migrate": "docker compose run backend npm db:migrate",
+    "docker:db:migrate:undo": "docker compose run backend npx knex migrate:down",
+    "docker:db:migrate:make": "docker compose run backend npx knex migrate:make",
+    "rebuild:be": "docker compose build backend && docker compose rm --force --stop backend && docker compose up -d backend"
   },
   "dependencies": {
+    "@prisma/client": "^5.8.1",
+    "bootstrap": "^5.3.2",
+    "dotenv": "^16.3.1",
+    "knex": "^3.1.0",
     "next": "12.2.5",
+    "pg": "^8.11.3",
     "react": "18.2.0",
+    "react-bootstrap": "^2.9.2",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
@@ -19,6 +33,7 @@
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
+    "prisma": "^5.8.1",
     "tailwindcss": "^3.1.8"
   }
 }
