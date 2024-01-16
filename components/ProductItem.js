@@ -26,7 +26,7 @@ export default function ProductItem({
         </Link>
         <p className="text-sm">{product.brand}</p>
         <p className="text-sm mt-2 mb-1">${product.price}</p>
-        {product.countInStock > 0 ? (
+        {product.countInStock - (state?.cart?.cartItems?.find((cartItem) => product.Id == cartItem.Id)?.quantity ?? 0) > 0 ? (
           <button
             className="primary-button"
             onClick={() => addToCartHandler(state,dispatch,product)}

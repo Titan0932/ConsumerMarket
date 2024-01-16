@@ -7,20 +7,31 @@ import Link from "next/link";
 import { Store } from "../../utils/redux/Store";
 import { constants } from "../../utils/redux/constants";
 import { addToCartHandler } from "../../utils/redux/actions";
+import db from '../../modules/db'
 
-export default function ProductDetails({
-}) {
+
+export async function getServerSideProps() {
+  const products = await db.product_Table.findMany({});
+  return {
+    props: { products },
+  };
+}
+
+export default function ProductDetails({products}) {
   const { query } = useRouter();
   const { slug } = query;
-  const product = data.products.find((x) => x.slug === slug);
+  const product = products.find((x) => x.slug === slug);
   const {state,dispatch}= useContext(Store)
-
-
+  const cart = state.cart.cartItems
+  
+console.log(cart?.find((id) => product.id == id)?.quantity)
   return (
-    <Layout itemsInCart={state.cart.cartItems}>
-      <button className="p-1 mb-3 secondary-button">
-        <Link href="/">Go Back</Link>
-      </button>
+    <Layout itemsInCart={cart}>
+        <Link href="/">
+          <button className="p-1 mb-3 secondary-button">
+            Go Back
+          </button>
+        </Link>
       {product ? (
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4 bg-white">
           <div className="md:col-span-2">
@@ -63,7 +74,7 @@ export default function ProductDetails({
                 <span className="text-red-700"> {product.countInStock} </span>
               </li>
               <li>
-                {product.countInStock > 0 ? (
+                {product.countInStock - (cart?.find((cartItem) => product.Id == cartItem.Id)?.quantity ?? 0) > 0 ? (
                   <button
                     className="primary-button"
                     onClick={() => addToCartHandler(state,dispatch,product)}
