@@ -11,10 +11,10 @@
     "db:migrate": "knex migrate:latest",
     "db:migrate:make": "knex migrate:make",
     "db:migrate:down": "knex migrate:down",
-    "docker:db:migrate": "docker compose run backend npm db:migrate",
-    "docker:db:migrate:undo": "docker compose run backend npx knex migrate:down",
-    "docker:db:migrate:make": "docker compose run backend npx knex migrate:make",
-    "rebuild:be": "docker compose build backend && docker compose rm --force --stop backend && docker compose up -d backend"
+    "docker:db:migrate": "docker compose run consumermarket npm db:migrate",
+    "docker:db:migrate:undo": "docker compose run consumermarket npx knex migrate:down",
+    "docker:db:migrate:make": "docker compose run consumermarket npx knex migrate:make",
+    "rebuild:be": "docker compose build consumermarket && docker compose rm --force --stop consumermarket && docker compose up -d consumermarket"
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
@@ -24,7 +24,6 @@
     "next": "12.2.5",
     "pg": "^8.11.3",
     "react": "18.2.0",
-    "react-bootstrap": "^2.9.2",
     "react-dom": "18.2.0"
   },
   "devDependencies": {

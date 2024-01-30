@@ -4,6 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
+:root{
+  --primary-color: rgb(251 191 36);
+  --primary-color-300: rgb(252 211 77);
+} 
+
 html,
 body {
   padding: 0;
@@ -23,7 +28,8 @@ a {
 }
 
 .card{
-  @apply mb-5 block rounded-lg border shadow-sm shadow-amber-400 text-black bg-slate-100;
+  @apply mb-5 block rounded-lg border shadow-sm  text-black bg-slate-100;
+  box-shadow: 0 4px 6px var(--primary-color-400);
 }
 
 .item-img:hover{
@@ -52,4 +58,8 @@ a {
     color: white;
     background: black;
   }
+}
+
+input.form-control:focus{
+  outline: var(--primary-color) solid 2px;
 }

@@ -24,7 +24,7 @@ export default function ProductDetails({products}) {
   const {state,dispatch}= useContext(Store)
   const cart = state.cart.cartItems
   
-console.log(cart?.find((id) => product.id == id)?.quantity)
+// console.log(cart?.find((id) => product.id == id)?.quantity)
   return (
     <Layout itemsInCart={cart}>
         <Link href="/">

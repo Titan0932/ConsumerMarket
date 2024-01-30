@@ -16,7 +16,7 @@ const Navbar = ({itemsInCart}) => {
             MyCart  {itemsInCart.length != 0 && <span className="rounded-full px-2 py-1 bg-red-500 text-white">{itemsInCart.reduce((a,b) => a +b.quantity, 0 )}</span>}
           </a>
         </Link>
-        <Link href="/" className="px-2">
+        <Link href="/login" className="px-2">
           <a className="px-2"> Login </a>
         </Link>
       </div>
