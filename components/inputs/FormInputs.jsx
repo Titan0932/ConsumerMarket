@@ -44,7 +44,7 @@ export const FormInput = (props) => {
 
   return (
     <div id={`${type}-input-container`}>
-      <label for={`input${type}`} class="sr-only">
+      <label htmlFor={`input${type}`} class="sr-only">
         {label}
       </label>
       <input
