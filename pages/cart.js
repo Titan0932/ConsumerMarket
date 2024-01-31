@@ -2,8 +2,8 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Store } from "../utils/redux/Store";
 import { useContext } from "react";
-import CartItems from "../components/CartItems";
-import CartTotal from "../components/CartTotal";
+import CartItems from "../components/Cart/CartItems";
+import CartTotal from "../components/Cart/CartTotal";
 
 export default function Cart() {
   const { state } =   useContext(Store);

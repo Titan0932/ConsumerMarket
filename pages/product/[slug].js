@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import data from "../../utils/data";
-import Image from "next/image";
 import Link from "next/link";
 import { Store } from "../../utils/redux/Store";
 import { constants } from "../../utils/redux/constants";
-import { addToCartHandler } from "../../utils/redux/actions";
 import db from '../../modules/db'
+import { ProductView } from "../../components/Product/ProductView";
 
 
 export async function getServerSideProps() {
@@ -20,7 +19,7 @@ export async function getServerSideProps() {
 export default function ProductDetails({products}) {
   const { query } = useRouter();
   const { slug } = query;
-  const product = products.find((x) => x.slug === slug);
+  const product = products?.find((x) => x.slug === slug);
   const {state,dispatch}= useContext(Store)
   const cart = state.cart.cartItems
   
@@ -33,7 +32,7 @@ export default function ProductDetails({products}) {
           </button>
         </Link>
 
-        <ProductDetails product={product} />
+        <ProductView product={product} cart={cart} />
       
     </Layout>
   );

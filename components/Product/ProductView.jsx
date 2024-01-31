@@ -1,6 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
+import Image from "next/image";
+import { addToCartHandler } from "../../utils/redux/actions";
+import { Store } from "../../utils/redux/Store";
 
-export const ProductView = ({ product }) => {
+export const ProductView = ({ product, cart }) => {
+  const {state,dispatch}= useContext(Store)
+
   return (
     <>
       {product ? (

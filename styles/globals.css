@@ -61,5 +61,14 @@ a {
 }
 
 input.form-control:focus{
+  border: none;
   outline: var(--primary-color) solid 2px;
+}
+
+.pw-input-container{
+  background-color: white;
+  border-radius: 0.375rem;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  border: 1px solid #dee2e6;
 }

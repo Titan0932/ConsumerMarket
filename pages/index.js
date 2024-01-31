@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import ProductItem from "../components/ProductItem";
+import ProductItem from "../components/Product/ProductItem";
 // import data from "../utils/data";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../utils/redux/Store";

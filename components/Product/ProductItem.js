@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import { addToCartHandler } from "../utils/redux/actions";
-import { Store } from "../utils/redux/Store";
+import { addToCartHandler } from "../../utils/redux/actions";
+import { Store } from "../../utils/redux/Store";
 
 export default function ProductItem({
   product,
